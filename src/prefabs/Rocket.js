@@ -26,6 +26,7 @@ class Rocket extends Phaser.GameObjects.Sprite {
             this.isFiring = true;
             //play sfx
             this.sfxRocket.play();
+
         }
         //if fired move up
         if(this.isFiring && this.y >= borderUISize * 3 + borderPadding) {
