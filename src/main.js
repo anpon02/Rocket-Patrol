@@ -10,7 +10,7 @@ let config = {
 let game = new Phaser.Game(config);
 
 //reserve keyboard vars
-let keyF, keyR, keyLEFT, keyRIGHT;
+let keyF, keyR, keyRIGHT, keyLEFT;
 
 //set UI sizes
 let borderUISize= game.config.height / 15;
