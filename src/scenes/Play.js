@@ -4,6 +4,7 @@ class Play extends Phaser.Scene {
     }
     preload() {
         //load images/tile sprites
+        this.load.image('newBoarder', './assets/newBoarder.png' );
         this.load.image('newRocket', './assets/newRocket.png' );
         this.load.image('newShip', './assets/newShip.png');
         this.load.image('SmallShip', './assets/SmallShip.png');
@@ -31,6 +32,8 @@ class Play extends Phaser.Scene {
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
+
+        this.newboarder = this.add.tileSprite(0, 0, 640, 480, 'newBoarder').setOrigin(0, 0);
 
         //add rocekt (p1)
         this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'newRocket').setOrigin(0.5, 0);
@@ -64,7 +67,7 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 100
         }
-        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
+        this.scoreLeft = this.add.text(borderUISize + borderPadding*2, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
 
         //game over flag
         this.gameOver = false;
