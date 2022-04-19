@@ -8,6 +8,11 @@ class Rocket extends Phaser.GameObjects.Sprite {
         this.isFiring = false;
         this.moveSpeed = 2;
 
+        this.fireKey;
+        //like rocket1.fireKey = key binding;
+        this.leftKey;
+        this.rightKey;
+
         this.sfxRocket = scene.sound.add('sfx_rocket');
     }
 
