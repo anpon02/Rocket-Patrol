@@ -29,16 +29,16 @@ class Play extends Phaser.Scene {
         this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0, 0);
 
         //white borders
-        this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
-        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
-        this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
-        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
+        // this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
+        // this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
+        // this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
+        // this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
 
         this.newboarder = this.add.tileSprite(0, 0, 640, 480, 'newBoarder').setOrigin(0, 0);
 
         //add rocekt (p1)
         this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'newRocket').setOrigin(0.5, 0);
-
+        //add rocekt (p2)
         this.p2Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'newRocket').setOrigin(0.5, 0);
     
 
@@ -81,13 +81,32 @@ class Play extends Phaser.Scene {
                 top: 5,
                 bottom: 5,
             },
-            fixedWidth: 100
+            fixedWidth: 70
         }
 
-        
-        this.scoreRight = this.add.text(borderUISize + borderPadding*2, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
-        this.scoreLeft = this.add.text(borderUISize*14.85 + borderPadding, borderUISize + borderPadding*2, this.p2Score, scoreConfig);
+        // fire text
+        let playConfig = {
+            fontFamily: 'Courier',
+            fontSize: '24px',
+            backgroundColor: '#F3B141',
+            color: '#843605',
+            align: 'right',
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 0
+        }
 
+        //FIRE UI text
+        this.fireText = this.add.text(game.config.width/2.20, game.config.height/2 - borderUISize*4.95 - borderPadding, 'FIRE', playConfig).setOrigin(0.5);
+        this.compuText = this.add.text(game.config.width/1.85, game.config.height/2.15 - borderUISize*4.95 - borderPadding, 'COMPUTER', playConfig);//.setOrigin(0.5);
+
+        //display scores 
+        this.scoreRight = this.add.text(borderUISize + borderPadding*2, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
+        this.scoreLeft = this.add.text(borderUISize*15.80 + borderPadding, borderUISize + borderPadding*2, this.p2Score, scoreConfig);
+
+        
         //game over flag
         this.gameOver = false;
 
