@@ -31,7 +31,6 @@ Mods:
         - new Title screen (10pts)
         - new UI boarders (10pts)
     Intermediate Tier:
-        - new, faster spaceship, more points (20pts)
         - new artwork for in-game assets (20pts)
 
     Shrek Tier
